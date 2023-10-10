@@ -1,0 +1,112 @@
+$base-color: #1d1c1b;
+$secondary-color: #312e2b;
+$main-color: #7c66db;
+
+.app {
+  min-height: 100vh;
+  background-color: $base-color;
+  display: grid;
+  place-content: center;
+
+  .text-area-wrapper {
+    display: flex;
+    flex-direction: column;
+
+    .text-area {
+      resize: none;
+      padding: 0.5rem;
+      width: 360px;
+      height: 200px;
+    }
+  }
+
+  .button-holder {
+    display: flex;
+    justify-content: center;
+    gap: 0.75rem;
+
+    .button {
+      margin: 0.75rem 0;
+    }
+  }
+
+  .button {
+    margin: 0.75rem auto;
+    padding: 0.5rem;
+    background-color: $main-color;
+    user-select: none;
+    max-width: 200px;
+  }
+
+  .text-component {
+    max-width: 720px;
+    margin: auto;
+    padding: 1rem;
+
+    .text-panel {
+      display: flex;
+      gap: 1rem;
+      margin-bottom: 1.25rem;
+
+      .word-count {
+        color: $main-color;
+      }
+
+      .time {
+        color: $main-color;
+      }
+    }
+
+    .text {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 0.5rem;
+
+      .word {
+        display: flex;
+        color: rgb(143, 143, 143);
+
+        &.final-word {
+          .incorrect-letter {
+            color: rgb(197, 56, 56) !important;
+          }
+        }
+
+        .letter {
+          transition: all 0.3s ease;
+
+          &.active-letter {
+            color: white;
+            text-decoration: underline;
+          }
+          &.correct-letter {
+            color: rgb(100, 247, 100);
+          }
+          &.incorrect-letter {
+            color: rgb(231, 76, 76);
+
+            animation: shake 0.2s cubic-bezier(0.36, 0.07, 0.19, 0.97) both;
+          }
+        }
+      }
+    }
+  }
+}
+
+@keyframes shake {
+  0% {
+    transform: translateX(0);
+  }
+  25% {
+    transform: translateX(-2.5px);
+  }
+  50% {
+    transform: translateX(2.5px);
+  }
+  75% {
+    transform: translateX(-2.5px);
+  }
+  100% {
+    transform: translateX(0);
+  }
+}
