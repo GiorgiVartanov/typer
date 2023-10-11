@@ -35,7 +35,7 @@ const App = () => {
     <div className="app">
       {isTextSelected ? (
         <>
-          <Text text={text.toLowerCase()} />
+          <Text text={text} />
           <button
             onClick={handleOnReset}
             className="button"
@@ -64,7 +64,7 @@ const App = () => {
               onClick={handleOnSaveText}
               className="button"
             >
-              Select Text
+              Start
             </button>
 
             <button

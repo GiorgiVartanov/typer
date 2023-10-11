@@ -8,11 +8,11 @@ const Letter = ({ letter, isCurrentLetter, isCorrect = 0 }: Props) => {
   const color = ["", "incorrect-letter", "correct-letter"][isCorrect]
 
   return (
-    <div
+    <span
       className={`letter ${color} ${isCurrentLetter ? "active-letter" : ""}`}
     >
       {letter}
-    </div>
+    </span>
   )
 }
 export default Letter

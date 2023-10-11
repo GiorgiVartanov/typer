@@ -16,9 +16,9 @@ export default defineConfig({
         theme_color: "#7c66db",
         icons: [
           {
-            src: "/icon-512x512.png",
+            src: "/icon.svg",
             sizes: "512x512",
-            type: "image/png",
+            type: "image/svg+xml",
             purpose: "any maskable",
           },
         ],

@@ -1,5 +1,7 @@
 import { useState, useEffect, useRef } from "react"
 
+import calculateWPM from "../util/calculateWPM"
+
 import Word from "./Word"
 import ActiveWord from "./ActiveWord"
 
@@ -15,7 +17,12 @@ const Text = ({ text }: Props) => {
 
   const timerRef = useRef<number | null>(null)
 
+  // goes to the next word
   const goToNextWord = (correctLetters: (0 | 1 | 2)[]) => {
+    // 0 - letter was not typed yet
+    // 1 - letter was typed incorrectly
+    // 2- letter was typed correctly
+
     setCurrentWordIndex((prevState) => prevState + 1)
     setCorrectLetters((prevState) => {
       if (prevState) {
@@ -47,6 +54,7 @@ const Text = ({ text }: Props) => {
   }
 
   const handleKeyPress = () => {
+    // used tp start counting time after user presses a key first time
     if (!isTyping) {
       setIsTyping(true)
       startTimer()
@@ -74,16 +82,22 @@ const Text = ({ text }: Props) => {
   const hasFinished = currentWordIndex === text.split(" ").length
 
   const endTime = Date.now()
-  const elapsedTime =
-    startTime !== null
-      ? `${((endTime - startTime) / 1000).toFixed(2)} seconds`
-      : ""
+  const elapsedTime = startTime !== null ? (endTime - startTime) / 1000 : 0
 
   return (
     <div className="text-component">
       <div className="text-panel">
         <div className="word-count">{calculateAccuracy()}</div>
-        <div className="time">{hasFinished ? elapsedTime : ""}</div>
+        <div className="time">
+          {hasFinished ? `${elapsedTime.toFixed(2)} seconds` : ""}
+        </div>
+        <div className="time">
+          {hasFinished
+            ? `${calculateWPM(text, elapsedTime, correctLetters).toFixed(
+                2
+              )} WPM`
+            : ""}
+        </div>
       </div>
 
       <div className="text">

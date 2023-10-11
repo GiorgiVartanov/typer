@@ -57,6 +57,10 @@ $main-color: #7c66db;
       }
     }
 
+    .hidden-input {
+      display: none;
+    }
+
     .text {
       display: flex;
       flex-wrap: wrap;
