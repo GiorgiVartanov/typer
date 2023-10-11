@@ -8,7 +8,7 @@ export default defineConfig({
     react(),
     VitePWA({
       registerType: "autoUpdate",
-      includeAssets: ["icon-512x512.png"],
+      includeAssets: ["icon.svg"],
       manifest: {
         name: "Typer",
         description: "simple typing website",
