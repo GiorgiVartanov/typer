@@ -1,5 +1,4 @@
 const calculateWPM = (
-  text: string,
   timeInSeconds: number,
   correctLetters: number[][]
 ): number => {

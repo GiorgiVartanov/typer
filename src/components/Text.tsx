@@ -93,9 +93,7 @@ const Text = ({ text }: Props) => {
         </div>
         <div className="time">
           {hasFinished
-            ? `${calculateWPM(text, elapsedTime, correctLetters).toFixed(
-                2
-              )} WPM`
+            ? `${calculateWPM(elapsedTime, correctLetters).toFixed(2)} WPM`
             : ""}
         </div>
       </div>
